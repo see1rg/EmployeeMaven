@@ -10,8 +10,8 @@ public class Employee {
     private String sureName;
     private String department;
     private double salary;
-    public static int count;
-    public int id;
+    private static int count;
+    protected int id;
 
     public Employee(String sureName, String name, String middleName, String department, double salary) {
         setName(name);
