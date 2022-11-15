@@ -1,0 +1,2 @@
+### Получить всех сотрудников
+GET http://localhost:8080/employees
