@@ -61,7 +61,7 @@ public class Main {
         System.out.println("Список сотрудников с зарплатой меньше : " + getEmloyeesUnderSalary);
         for (Employee value : employees) {
             if ((value != null) && (getEmloyeesUnderSalary > value.getSalary())) {
-                System.out.println(value.getFio() + " " + value.getSalary() + " id" + value.id);
+                System.out.println(value.getFio() + " " + value.getSalary() + " id" + value.getId());
 
             }
         }
@@ -70,7 +70,7 @@ public class Main {
         System.out.println("Список сотрудников с зарплатой больше : " + getEmloyeesSalaryHigher);
         for (Employee employee : employees) {
             if ((employee != null) && (getEmloyeesSalaryHigher < employee.getSalary())) {
-                System.out.println(employee.getFio() + " " + employee.getSalary() + " id" + employee.id);
+                System.out.println(employee.getFio() + " " + employee.getSalary() + " id" + employee.getId());
             }
         }
     }
