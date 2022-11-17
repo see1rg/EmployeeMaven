@@ -1,8 +1,6 @@
 package org.example;
 
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.server.ResponseStatusException;
 
 public class Employee {
     private String name;
@@ -46,7 +44,7 @@ public class Employee {
         if (StringUtils.isAlpha(name)) {
             this.name = StringUtils.capitalize(name);
         } else {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Exception");
+            throw new IllegalArgumentException("incorrect name");
         }
     }
 
@@ -58,7 +56,7 @@ public class Employee {
         if (StringUtils.isAlpha(middleName)) {
             this.middleName = StringUtils.capitalize(middleName);
         } else {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Exception");
+            throw new IllegalArgumentException("incorrect middle name");
         }
     }
 
@@ -70,7 +68,7 @@ public class Employee {
         if (StringUtils.isAlpha(sureName)) {
             this.sureName = StringUtils.capitalize(sureName);
         } else {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Exception");
+            throw new IllegalArgumentException("incorrect sure name");
         }
     }
 
