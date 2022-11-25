@@ -1,6 +1,8 @@
-package org.example;
+package org.example.model;
 
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
 
 public class Employee {
     private String name;
@@ -9,7 +11,7 @@ public class Employee {
     private String department;
     private double salary;
     private static int count;
-    private int id;
+    private final int id;
 
     public Employee(String sureName, String name, String middleName, String department, double salary) {
         setName(name);
@@ -24,18 +26,6 @@ public class Employee {
         return id;
     }
 
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "name='" + name + '\'' +
-                ", middleName='" + middleName + '\'' +
-                ", sureName='" + sureName + '\'' +
-                ", department='" + department + '\'' +
-                ", salary=" + salary +
-                ", id=" + id +
-                '}';
-    }
-
     public String getName() {
         return name;
     }
@@ -44,7 +34,7 @@ public class Employee {
         if (StringUtils.isAlpha(name)) {
             this.name = StringUtils.capitalize(name);
         } else {
-            throw new IllegalArgumentException("incorrect name");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
     }
 
@@ -56,7 +46,7 @@ public class Employee {
         if (StringUtils.isAlpha(middleName)) {
             this.middleName = StringUtils.capitalize(middleName);
         } else {
-            throw new IllegalArgumentException("incorrect middle name");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
     }
 
@@ -92,5 +82,19 @@ public class Employee {
     public String getFio() {
         return getSureName() + " " + getName() + " " + getMiddleName() + ". ";
     }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", middleName='" + middleName + '\'' +
+                ", sureName='" + sureName + '\'' +
+                ", department='" + department + '\'' +
+                ", salary=" + salary +
+                ", id=" + id +
+                '}';
+    }
 }
+
+
 
