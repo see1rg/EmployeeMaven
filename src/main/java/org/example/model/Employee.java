@@ -7,16 +7,14 @@ import org.springframework.web.server.ResponseStatusException;
 public class Employee {
     private String name;
     private String middleName;
-    private String sureName;
-    private String department;
+    private int department;
     private double salary;
     private static int count;
     private final int id;
 
-    public Employee(String sureName, String name, String middleName, String department, double salary) {
+    public Employee(String name, String middleName, int department, double salary) {
         setName(name);
         setMiddleName(middleName);
-        setSureName(sureName);
         this.department = department;
         this.salary = salary;
         id = count++;
@@ -50,23 +48,12 @@ public class Employee {
         }
     }
 
-    public String getSureName() {
-        return sureName;
-    }
 
-    public void setSureName(String sureName) {
-        if (StringUtils.isAlpha(sureName)) {
-            this.sureName = StringUtils.capitalize(sureName);
-        } else {
-            throw new IllegalArgumentException("incorrect sure name");
-        }
-    }
-
-    public String getDepartment() {
+    public int getDepartment() {
         return department;
     }
 
-    public void setDepartment(String department) {
+    public void setDepartment(int department) {
         this.department = department;
     }
 
@@ -80,7 +67,7 @@ public class Employee {
 
 
     public String getFio() {
-        return getSureName() + " " + getName() + " " + getMiddleName() + ". ";
+        return  getName() + " " + getMiddleName() + ". ";
     }
 
     @Override
@@ -88,7 +75,6 @@ public class Employee {
         return "Employee{" +
                 "name='" + name + '\'' +
                 ", middleName='" + middleName + '\'' +
-                ", sureName='" + sureName + '\'' +
                 ", department='" + department + '\'' +
                 ", salary=" + salary +
                 ", id=" + id +

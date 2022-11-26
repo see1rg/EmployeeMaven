@@ -3,8 +3,7 @@ package org.example.request;
 public class EmployeeRequest {
     private String firstName;
     private String lastName;
-    private String sureName;
-    private String department;
+    private static int department;
     private double salary;
 
 
@@ -24,19 +23,11 @@ public class EmployeeRequest {
         this.lastName = lastName;
     }
 
-    public String getSureName() {
-        return sureName;
-    }
-
-    public void setSurename(String surename) {
-        this.sureName = surename;
-    }
-
-    public String getDepartment() {
+    public int getDepartment() {
         return department;
     }
 
-    public void setDepartment(String department) {
+    public void setDepartment(int department) {
         this.department = department;
     }
 

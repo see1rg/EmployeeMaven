@@ -9,10 +9,15 @@ import java.util.stream.Collectors;
 
 @Service
 public class EmployeeService {
-    private final Map<Integer, Employee> employees = new HashMap<>();
+    private static final Map<Integer, Employee> employees = new HashMap<>();
 
-    public Collection<Employee> getAllEmployees() {
-        return this.employees.values();
+    public static Collection<Employee> getAllEmployees() {
+        return employees.values();
+    }
+
+    public static Map<Integer, List<Employee>> findEmployeesById() {
+        return employees.values().stream().collect(Collectors.groupingBy(Employee::getDepartment));
+
     }
 
     public Employee addEmployee(EmployeeRequest employeeRequest) throws IllegalAccessException {
@@ -21,11 +26,10 @@ public class EmployeeService {
         }
         Employee employee = new Employee(employeeRequest.getLastName(),
                 employeeRequest.getFirstName(),
-                employeeRequest.getSureName(),
                 employeeRequest.getDepartment(),
                 employeeRequest.getSalary());
 
-        this.employees.put(employee.getId(), employee);
+        employees.put(employee.getId(), employee);
         return employee;
 
     }

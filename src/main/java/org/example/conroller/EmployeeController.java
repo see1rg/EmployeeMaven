@@ -21,33 +21,33 @@ public class EmployeeController {
 
     @GetMapping("/")
     public Collection<Employee> getAllEmployees() {
-        return this.employeeService.getAllEmployees();
+        return employeeService.getAllEmployees();
     }
 
     @PostMapping("/")
     public Employee createEmployee(@RequestBody EmployeeRequest employeeRequest) throws IllegalAccessException {
-        return this.employeeService.addEmployee(employeeRequest);
+        return employeeService.addEmployee(employeeRequest);
     }
 
     @GetMapping("/salary/sum")
     public int getSalarySum() {
-        return this.employeeService.getSalarySum();
+        return employeeService.getSalarySum();
     }
 
     @GetMapping("/salary/min")
     public Double getMinSalary() {
-        return this.employeeService.getMinSalary();
+        return employeeService.getMinSalary();
     }
 
     @GetMapping("/salary/max")
     public Double getMaxSalary() {
-        return this.employeeService.getMaxSalary();
+        return employeeService.getMaxSalary();
     }
 
 
     @GetMapping("/high-salary")
     public List<Employee> getAllEmployeesWithAverageSalary() {
-        return this.employeeService.getAllEmployeesWithAverageSalary();
+        return employeeService.getAllEmployeesWithAverageSalary();
     }
 
 }
