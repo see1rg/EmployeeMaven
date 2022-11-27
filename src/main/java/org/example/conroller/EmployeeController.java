@@ -20,7 +20,7 @@ public class EmployeeController {
 
 
     @GetMapping("/")
-    public Collection<Employee> getAllEmployees() {
+    public List<Employee> getAllEmployees() {
         return employeeService.getAllEmployees();
     }
 

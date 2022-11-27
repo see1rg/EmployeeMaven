@@ -11,8 +11,8 @@ import java.util.stream.Collectors;
 public class EmployeeService {
     private static final Map<Integer, Employee> employees = new HashMap<>();
 
-    public static Collection<Employee> getAllEmployees() {
-        return employees.values();
+    public static List<Employee> getAllEmployees() {
+        return employees.values().stream().toList();
     }
 
     public static Map<Integer, List<Employee>> findEmployeesById() {

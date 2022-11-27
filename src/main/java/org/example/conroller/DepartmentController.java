@@ -21,8 +21,8 @@ public class DepartmentController {
     }
 
     @GetMapping(path = "/employees/{id}") //список сотрудников по деп
-    public Collection<Employee> getAllEmployees(@PathVariable int id) {
-        return departmentService.getAllEmployees(id);
+    public List<Employee> getAllEmployeesByDepartment(@PathVariable int id) {
+        return departmentService.getAllEmployeesByDepartment(id);
     }
 
     @GetMapping(path = "/employees/{id}/salary/sum")
