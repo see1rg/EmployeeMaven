@@ -20,8 +20,8 @@ public class EmployeeController {
 
 
     @GetMapping("/")
-    public List<Employee> getAllEmployees() {
-        return EmployeeService.getAllEmployees();
+    public Collection<Employee> getAllEmployees() {
+        return employeeService.getAllEmployees();
     }
 
     @PostMapping("/")

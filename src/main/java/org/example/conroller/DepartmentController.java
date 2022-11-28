@@ -26,7 +26,7 @@ public class DepartmentController {
 
     @GetMapping(path = "/employees/{id}/salary/sum")
     public Double getSalarySum(@PathVariable int id) {
-        return DepartmentService.getSalarySum(id);
+        return departmentService.getSalarySum(id);
     }
 
     @GetMapping(path = "/employees/{id}/salary/max")
