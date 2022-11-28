@@ -4,7 +4,6 @@ import org.example.model.Employee;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.annotation.SessionScope;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -34,7 +33,7 @@ public class DepartmentService {
 
     public List<Employee> getAllEmployeesByDepartment(int id) {
         return EmployeeService.getAllEmployees().stream().
-                filter(x -> x.getDepartment() == id ).collect(Collectors.toSet());
+                filter(x -> x.getDepartment() == id ).collect(Collectors.toList());
     }
 
 }
