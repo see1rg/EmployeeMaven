@@ -75,16 +75,10 @@ class DepartmentServiceTest {
 
     @Test
     void shouldReturnAllEmployeesByDepartment() {
-        final Map<Integer, List<Employee>> actual = actualEmployees.stream().
-                map(Employee::getDepartment).toList().stream().
-                collect(Collectors.toMap(dept -> dept, this::apply));
+        final Map<Integer, List<Employee>> actual = actualEmployees
+        .stream().collect(Collectors.groupingBy(Employee::getDepartment));
 
         final Map<Integer, List<Employee>> expected = departmentService.getEmployeesByDepartment();
         assertEquals(expected,actual);
-    }
-
-    private List<Employee> apply(Integer dept) {
-        return actualEmployees.stream().
-                filter(x -> x.getDepartment() == dept).collect(Collectors.toList());
     }
 }
