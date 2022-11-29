@@ -5,16 +5,16 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 
 public class Employee {
-    private String name;
-    private String middleName;
+    private String firstName;
+    private String lastName;
     private int department;
     private double salary;
     private static int count;
     private final int id;
 
-    public Employee(String name, String middleName, int department, double salary) {
-        setName(name);
-        setMiddleName(middleName);
+    public Employee(String firstName, String lastName, int department, double salary) {
+        setFirstName(firstName);
+        setLastName(lastName);
         this.department = department;
         this.salary = salary;
         id = count++;
@@ -24,25 +24,25 @@ public class Employee {
         return id;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        if (StringUtils.isAlpha(name)) {
-            this.name = StringUtils.capitalize(name);
+    public void setFirstName(String firstName) {
+        if (StringUtils.isAlpha(firstName)) {
+            this.firstName = StringUtils.capitalize(firstName);
         } else {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
     }
 
-    public String getMiddleName() {
-        return middleName;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setMiddleName(String middleName) {
-        if (StringUtils.isAlpha(middleName)) {
-            this.middleName = StringUtils.capitalize(middleName);
+    public void setLastName(String lastName) {
+        if (StringUtils.isAlpha(lastName)) {
+            this.lastName = StringUtils.capitalize(lastName);
         } else {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
@@ -67,15 +67,15 @@ public class Employee {
 
 
     public String getFio() {
-        return  getName() + " " + getMiddleName() + ". ";
+        return  getFirstName() + " " + getLastName() + ". ";
     }
 
     @Override
     public String toString() {
         return "Employee{" +
-                "name='" + name + '\'' +
-                ", middleName='" + middleName + '\'' +
-                ", department='" + department + '\'' +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", department=" + department +
                 ", salary=" + salary +
                 ", id=" + id +
                 '}';

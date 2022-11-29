@@ -31,7 +31,8 @@ public class DepartmentService {
     }
 
     public Map<Integer, List<Employee>> getEmployeesByDepartment() {
-        return employeeService.findEmployeesById();
+        return employeeService.getAllEmployees().stream()
+                .collect(Collectors.groupingBy(Employee::getDepartment));
     }
 
     public List<Employee> getAllEmployeesByDepartment(int id) {

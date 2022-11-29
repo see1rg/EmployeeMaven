@@ -3,9 +3,16 @@ package org.example.request;
 public class EmployeeRequest {
     private String firstName;
     private String lastName;
-    private static int department;
+    private int department;
     private double salary;
 
+
+    public EmployeeRequest(String firstName, String lastName, int department, double salary) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.department = department;
+        this.salary = salary;
+    }
 
     public String getFirstName() {
         return firstName;
